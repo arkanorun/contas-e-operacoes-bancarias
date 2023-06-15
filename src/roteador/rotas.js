@@ -1,14 +1,9 @@
 const { Router } = require('express')
 const contas = require("../controladores/contaBancaria")
 const transacoes = require('../controladores/transacoes')
-const { verificaSenha } = require('../intermediarios/verificaConta')
-const { verificaCriar } = require('../intermediarios/verificaConta')
-const { verificaAtualizar } = require('../intermediarios/verificaConta')
-const { verificaExcluir } = require('../intermediarios/verificaConta')
-const { verificaDeposito } = require('../intermediarios/verificaTrasacoes')
-const { verificaSaque } = require('../intermediarios/verificaTrasacoes')
-const { verificaTransferir } = require('../intermediarios/verificaTrasacoes')
-const { verificaSaldo } = require('../intermediarios/verificaConta')
+const { verificaSenha, verificaCriar, verificaAtualizar, verificaExcluir, verificaSaldo } = require('../intermediarios/verificaConta')
+const { verificaDeposito, verificaSaque, verificaTransferir } = require('../intermediarios/verificaTrasacoes')
+
 const rotas = Router()
 
 rotas.get('/contas', verificaSenha, contas.listarContas)
